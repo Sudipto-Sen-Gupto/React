@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
+import Count from './count'
 function App() {
   
 const button1Click=()=>{
@@ -31,6 +31,7 @@ const button1Click=()=>{
       <button onClick={button2Click}>Click2</button>
       <div id='divi'></div>
       <button onClick={()=>sum(24,28)}> Click 3</button>
+      <Count></Count>
     </>
 
   )
