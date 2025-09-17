@@ -5,8 +5,25 @@ import './App.css'
 import Count from './count'
 import Cricket from './cricket'
 import Ball from './Ball'
+import Api from './api'
+import { Suspense } from 'react'
+import Biodata from './UIShowed'
+// const detail=fetch("https://jsonplaceholder.typicode.com/posts").then(res=>res.json());
+const data=async()=>{
+  const url=await fetch("https://jsonplaceholder.typicode.com/posts");
+  const res= url.json();
+  return res 
+}
+
+const data2=async()=>{
+  const url=await fetch("https://jsonplaceholder.typicode.com/users");
+  const res=await url.json();
+  return res;
+
+}
 function App() {
-  
+  const detail=data();
+  const player=data2();
 const button1Click=()=>{
     alert("Button 1 is clicked")
    }
@@ -37,6 +54,14 @@ const button1Click=()=>{
 
       <Cricket></Cricket>
       <Ball></Ball>
+
+      <Suspense fallback={<span class="loading loading-bars loading-xl"></span>}>
+            <Api detail={detail}></Api>
+      </Suspense>
+      <Suspense fallback={<h1>loading..,</h1>}>
+              <Biodata players={player}></Biodata>
+      </Suspense>
+      
     </>
 
   )
