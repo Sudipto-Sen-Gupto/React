@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Count from './count'
+import Cricket from './cricket'
+import Ball from './Ball'
 function App() {
   
 const button1Click=()=>{
@@ -32,6 +34,9 @@ const button1Click=()=>{
       <div id='divi'></div>
       <button onClick={()=>sum(24,28)}> Click 3</button>
       <Count></Count>
+
+      <Cricket></Cricket>
+      <Ball></Ball>
     </>
 
   )
